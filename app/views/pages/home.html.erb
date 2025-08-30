@@ -1,0 +1,81 @@
+<!-- Hero Section -->
+<div class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
+        Smart Expense Tracking for 
+        <span class="text-blue-600">Japanese Freelancers</span>
+      </h1>
+      <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+        Manual entry or receipt scanning, automatic categorization, and seamless reporting. 
+        From daily coffee to business deductions - capture it all.
+      </p>
+      <div class="mt-10 flex justify-center gap-4">
+        <%= link_to new_user_registration_path, class: "bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition duration-200" do %>
+          Start Free Trial
+        <% end %>
+        <%= link_to new_user_session_path, class: "text-blue-600 px-8 py-3 rounded-md text-lg font-medium hover:text-blue-700 transition duration-200" do %>
+          Sign In →
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900">Everything you need to track expenses</h2>
+      <p class="mt-4 text-lg text-gray-600">Simple, powerful tools for Japanese freelancers</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="text-center">
+        <div class="mx-auto h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
+          <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-gray-900">Quick Entry</h3>
+        <p class="mt-2 text-gray-600">Add expenses in seconds. Manual entry or scan receipts on the go.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="text-center">
+        <div class="mx-auto h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
+          <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-gray-900">Business vs Personal</h3>
+        <p class="mt-2 text-gray-600">Automatically separate business expenses for easy tax preparation.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="text-center">
+        <div class="mx-auto h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
+          <svg class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-4 text-lg font-medium text-gray-900">Smart Reports</h3>
+        <p class="mt-2 text-gray-600">Export data for your accountant or tax filing in Japanese format.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<div class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-gray-900">Ready to simplify your expense tracking?</h2>
+    <p class="mt-4 text-lg text-gray-600">Join hundreds of Japanese freelancers already using PocketLedger</p>
+    <div class="mt-8">
+      <%= link_to new_user_registration_path, class: "bg-blue-600 text-white px-8 py-4 rounded-md text-lg font-medium hover:bg-blue-700 transition duration-200" do %>
+        Get Started Today
+      <% end %>
+    </div>
+  </div>
+</div>
