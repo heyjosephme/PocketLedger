@@ -18,11 +18,72 @@ git checkout -b feature/issue-number-brief-description
 # Example: git checkout -b feature/11-receipt-attachments
 ```
 
-### 3. Development
+### 3. Development (TDD Approach)
+
+We follow **Test-Driven Development (TDD)** for production-quality code:
+
+#### TDD Workflow (Red-Green-Refactor)
+
+1. **Write the test first (RED)**
+   ```bash
+   # Create or update test file
+   # Example: test/models/attachment_test.rb
+
+   # Run the test - it should fail
+   bin/rails test test/models/attachment_test.rb
+   ```
+
+2. **Write minimal code to pass (GREEN)**
+   ```bash
+   # Implement just enough code to make the test pass
+   # Example: app/models/attachment.rb
+
+   # Run the test - it should pass
+   bin/rails test test/models/attachment_test.rb
+   ```
+
+3. **Refactor (REFACTOR)**
+   ```bash
+   # Clean up code while keeping tests green
+   # Run all tests to ensure nothing broke
+   bin/rails test
+
+   # Check code style
+   bin/rubocop
+   ```
+
+4. **Repeat for next feature**
+
+#### Testing Guidelines
+
+- Write tests BEFORE implementation
+- Test models: validations, associations, business logic
+- Test controllers: authentication, authorization, CRUD operations
+- Test system/integration: critical user flows
+- Keep tests fast and focused
+- Use descriptive test names
+
+#### Pre-Commit Checklist
+
+```bash
+# 1. All tests pass
+bin/rails test
+
+# 2. No linting issues
+bin/rubocop
+
+# 3. No security issues
+bin/brakeman
+
+# 4. Stage and commit
+git add .
+git commit -m "feat: your feature description"
+```
+
 - Make small, focused commits
 - Follow Rails conventions and style guide
-- Write tests for new features
-- Run tests before committing: `bin/rails test`
+- Write tests BEFORE features (TDD)
+- Run full test suite before committing
 
 ### 4. Commit Messages
 Follow the conventional commit format:

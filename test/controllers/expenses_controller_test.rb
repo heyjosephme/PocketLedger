@@ -2,7 +2,9 @@ require "test_helper"
 
 class ExpensesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
     @expense = expenses(:one)
+    sign_in @user
   end
 
   test "should get index" do
