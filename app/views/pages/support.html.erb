@@ -1,0 +1,136 @@
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">Support</h1>
+
+  <div class="prose prose-blue max-w-none">
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Get Help</h2>
+      <p class="text-gray-700 mb-4">
+        We're here to help you get the most out of PocketLedger.
+        Whether you have questions, need technical assistance, or want to provide feedback, we'd love to hear from you.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Contact Methods</h2>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">Email Support</h3>
+        <p class="text-gray-700 mb-2">
+          For general inquiries, technical support, or bug reports:
+        </p>
+        <p class="text-lg">
+          <%= link_to "support@pocketledger.com", "mailto:support@pocketledger.com", class: "text-blue-600 hover:text-blue-800 font-medium" %>
+        </p>
+        <p class="text-sm text-gray-600 mt-2">We typically respond within 24-48 hours.</p>
+      </div>
+
+      <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">Feature Requests & Feedback</h3>
+        <p class="text-gray-700 mb-2">
+          Have an idea for a new feature or improvement?
+        </p>
+        <p class="text-lg">
+          <%= link_to "feedback@pocketledger.com", "mailto:feedback@pocketledger.com", class: "text-green-600 hover:text-green-800 font-medium" %>
+        </p>
+        <p class="text-sm text-gray-600 mt-2">We love hearing from our users!</p>
+      </div>
+
+      <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">Account & Billing</h3>
+        <p class="text-gray-700 mb-2">
+          Questions about subscriptions, payments, or account issues?
+        </p>
+        <p class="text-lg">
+          <%= link_to "billing@pocketledger.com", "mailto:billing@pocketledger.com", class: "text-purple-600 hover:text-purple-800 font-medium" %>
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Frequently Asked Questions</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I attach receipts to expenses?</h3>
+          <p class="text-gray-700">
+            When creating or editing an expense, use the "Receipt/Invoice Files" field to upload images (JPG, PNG) or PDF files.
+            You can attach multiple files to a single expense.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I set up recurring expenses?</h3>
+          <p class="text-gray-700">
+            Yes! When creating an expense, check the "Make this a recurring expense" box.
+            You can set the frequency (daily, weekly, monthly, yearly) and specify start/end dates.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I export my expense data?</h3>
+          <p class="text-gray-700">
+            You can export your expenses to CSV or PDF format from the expenses page.
+            This is useful for sharing with accountants or filing taxes.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Is my data secure?</h3>
+          <p class="text-gray-700">
+            Yes. We use industry-standard encryption for data transmission (HTTPS/SSL) and storage.
+            Your password is encrypted using bcrypt. See our <%= link_to "Privacy Policy", privacy_path, class: "text-blue-600 hover:text-blue-800" %> for details.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I delete my account and data?</h3>
+          <p class="text-gray-700">
+            Yes. You can delete your account at any time through your account settings.
+            All your expense records and uploaded files will be permanently deleted within 30 days.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">What file formats are supported for receipts?</h3>
+          <p class="text-gray-700">
+            We support common image formats (JPG, PNG, GIF) and PDF files. Each file should be under 10MB.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Do you offer a mobile app?</h3>
+          <p class="text-gray-700">
+            Currently, PocketLedger is a web application optimized for mobile browsers.
+            A dedicated mobile app is planned for the future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Report a Bug</h2>
+      <p class="text-gray-700 mb-4">
+        Found a bug? Please email us at <%= link_to "support@pocketledger.com", "mailto:support@pocketledger.com", class: "text-blue-600 hover:text-blue-800" %> with:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>A description of the problem</li>
+        <li>Steps to reproduce the issue</li>
+        <li>Your browser and operating system</li>
+        <li>Screenshots if applicable</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Additional Resources</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li><%= link_to "Privacy Policy", privacy_path, class: "text-blue-600 hover:text-blue-800" %> - How we protect your data</li>
+        <li><%= link_to "Terms of Service", terms_path, class: "text-blue-600 hover:text-blue-800" %> - Usage terms and conditions</li>
+        <li><%= link_to "About PocketLedger", about_path, class: "text-blue-600 hover:text-blue-800" %> - Learn more about our mission</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="mt-12 text-center">
+    <%= link_to "← Back to Home", root_path, class: "text-blue-600 hover:text-blue-800" %>
+  </div>
+</div>
