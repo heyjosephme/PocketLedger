@@ -4,22 +4,53 @@
 
 Expense tracking application for freelancers and small businesses.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- 💰 Track business and personal expenses
+- 📊 Categorize expenses by type and vendor
+- 🔐 Secure authentication with Devise
+- 📱 Responsive UI with Tailwind CSS
 
-* System dependencies
+## Planned Features
 
-* Configuration
+See our [roadmap issues](https://github.com/heyjosephme/PocketLedger/issues) for upcoming features:
+- 📎 Receipt/invoice attachments
+- 💳 Subscription plans with Stripe
+- 🔄 Recurring expenses
+- 🤖 OCR for automatic data extraction
+- 📈 Data visualization and analytics
 
-* Database creation
+## Tech Stack
 
-* Database initialization
+- Ruby 3.4.4
+- Rails 8.0
+- SQLite with Solid adapters (Cache, Queue, Cable)
+- Hotwire (Turbo + Stimulus)
+- Tailwind CSS
+- Kamal for deployment
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+# Install dependencies
+bundle install
 
-* Deployment instructions
+# Setup database
+bin/rails db:create db:migrate db:seed
 
-* ...
+# Start development server
+bin/dev
+
+# Run tests
+bin/rails test
+```
+
+Visit `http://localhost:3000`
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow and guidelines.
+
+## License
+
+This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
