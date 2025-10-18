@@ -1,22 +1,17 @@
-<footer class="bg-gray-50 border-t border-gray-200">
+<footer class="bg-gray-50 border-t border-gray-200 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
       <div>
-        <p class="text-gray-600 text-sm">
+        <p class="text-gray-600 text-sm text-center md:text-left">
           © <%= Date.current.year %> PocketLedger. Built for Japanese freelancers.
         </p>
       </div>
-      
-      <div class="flex space-x-6">
-        <a href="mailto:support@pocketledger.com" class="text-gray-500 hover:text-gray-900 text-sm">
-          Support
-        </a>
-        <a href="#" class="text-gray-500 hover:text-gray-900 text-sm">
-          Privacy
-        </a>
-        <a href="#" class="text-gray-500 hover:text-gray-900 text-sm">
-          Terms
-        </a>
+
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+        <%= link_to "Privacy Policy", privacy_path, class: "text-gray-500 hover:text-gray-900 text-sm transition" %>
+        <%= link_to "Terms of Service", terms_path, class: "text-gray-500 hover:text-gray-900 text-sm transition" %>
+        <%= link_to "Support", support_path, class: "text-gray-500 hover:text-gray-900 text-sm transition" %>
+        <%= link_to "About", about_path, class: "text-gray-500 hover:text-gray-900 text-sm transition" %>
       </div>
     </div>
   </div>
