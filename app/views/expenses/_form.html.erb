@@ -58,9 +58,62 @@
         <p class="mt-1 text-xs text-gray-500">Upload receipt or invoice files (PDF, JPG, PNG)</p>
       </div>
     </div>
+
+    <!-- Recurring Expense Section -->
+    <div class="md:col-span-2 border-t pt-6 mt-6">
+      <div class="flex items-center mb-4">
+        <%= form.check_box :is_recurring, class: "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded", data: { action: "change->expense#toggleRecurrence" } %>
+        <%= form.label :is_recurring, "Make this a recurring expense", class: "ml-2 text-sm font-medium text-gray-700" %>
+      </div>
+
+      <div id="recurrence-fields" class="<%= 'hidden' unless expense.is_recurring %> space-y-4 pl-6 border-l-2 border-purple-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <%= form.label :recurrence_frequency, "Frequency", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= form.select :recurrence_frequency,
+                options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"], ["Yearly", "yearly"]], expense.recurrence_frequency),
+                { prompt: "Select frequency" },
+                { class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" } %>
+          </div>
+
+          <div>
+            <%= form.label :recurrence_start_date, "Start Date", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= form.date_field :recurrence_start_date, value: expense.recurrence_start_date || expense.expense_date, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" %>
+          </div>
+
+          <div class="md:col-span-2">
+            <%= form.label :recurrence_end_date, "End Date (optional - leave blank for ongoing)", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= form.date_field :recurrence_end_date, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" %>
+          </div>
+        </div>
+
+        <div class="bg-purple-50 border border-purple-200 rounded-md p-3">
+          <p class="text-xs text-purple-700">
+            <strong>Note:</strong> Future expenses will be auto-generated based on this schedule. You can attach receipts to each generated expense individually.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="mt-6 flex justify-end">
     <%= form.submit class: "px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200" %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const recurringCheckbox = document.querySelector('[name="expense[is_recurring]"]');
+    const recurrenceFields = document.getElementById('recurrence-fields');
+
+    if (recurringCheckbox) {
+      recurringCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          recurrenceFields.classList.remove('hidden');
+        } else {
+          recurrenceFields.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>

@@ -85,4 +85,41 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, @expense.receipts.count
     assert_redirected_to expense_url(@expense)
   end
+
+  test "should create recurring expense" do
+    assert_difference("Expense.count") do
+      post expenses_url, params: {
+        expense: {
+          amount: 5000,
+          description: "Office Rent",
+          expense_date: Date.today,
+          expense_type: "business",
+          category: "Office",
+          is_recurring: true,
+          recurrence_frequency: "monthly",
+          recurrence_start_date: Date.today
+        }
+      }
+    end
+
+    expense = Expense.last
+    assert expense.recurring?
+    assert_equal "monthly", expense.recurrence_frequency
+    assert_redirected_to expense_url(expense)
+  end
+
+  test "should update expense to make it recurring" do
+    patch expense_url(@expense), params: {
+      expense: {
+        is_recurring: true,
+        recurrence_frequency: "weekly",
+        recurrence_start_date: Date.today
+      }
+    }
+
+    @expense.reload
+    assert @expense.recurring?
+    assert_equal "weekly", @expense.recurrence_frequency
+    assert_redirected_to expense_url(@expense)
+  end
 end
