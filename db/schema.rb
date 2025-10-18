@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_18_122330) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_18_123905) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,6 +50,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_18_122330) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.boolean "is_recurring", default: false, null: false
+    t.string "recurrence_frequency"
+    t.date "recurrence_start_date"
+    t.date "recurrence_end_date"
+    t.integer "parent_expense_id"
+    t.index ["is_recurring"], name: "index_expenses_on_is_recurring"
+    t.index ["parent_expense_id"], name: "index_expenses_on_parent_expense_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
