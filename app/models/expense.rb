@@ -5,6 +5,9 @@ class Expense < ApplicationRecord
   has_many_attached :receipts
 
   enum :expense_type, { personal: 0, business: 1 }
+
+  # Explicitly declare attribute type for Rails 8 enum with string values
+  attribute :recurrence_frequency, :string
   enum :recurrence_frequency, { daily: "daily", weekly: "weekly", monthly: "monthly", yearly: "yearly" }, prefix: true
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
