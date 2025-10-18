@@ -44,6 +44,11 @@
           <p class="text-gray-600"><%= @expense.notes %></p>
         </div>
       <% end %>
+
+      <!-- Receipt Attachments -->
+      <div class="md:col-span-2">
+        <%= render AttachmentListComponent.new(attachments: @expense.receipts) %>
+      </div>
     </div>
 
     <!-- Action Buttons -->

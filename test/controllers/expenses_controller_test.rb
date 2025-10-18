@@ -47,4 +47,42 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to expenses_url
   end
+
+  test "should create expense with receipt attachments" do
+    file1 = fixture_file_upload("receipt1.pdf", "application/pdf")
+    file2 = fixture_file_upload("receipt2.jpg", "image/jpeg")
+
+    assert_difference("Expense.count") do
+      post expenses_url, params: {
+        expense: {
+          amount: 100.50,
+          description: "Test expense",
+          expense_date: Date.today,
+          expense_type: "business",
+          category: "Office",
+          vendor: "Test Vendor",
+          receipts: [ file1, file2 ]
+        }
+      }
+    end
+
+    expense = Expense.last
+    assert_equal 2, expense.receipts.count
+    assert_redirected_to expense_url(expense)
+  end
+
+  test "should update expense and add receipt attachments" do
+    file = fixture_file_upload("receipt1.pdf", "application/pdf")
+
+    patch expense_url(@expense), params: {
+      expense: {
+        amount: @expense.amount,
+        receipts: [ file ]
+      }
+    }
+
+    @expense.reload
+    assert_equal 1, @expense.receipts.count
+    assert_redirected_to expense_url(@expense)
+  end
 end
