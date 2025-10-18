@@ -1,7 +1,8 @@
-# README
+# PocketLedger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+Expense tracking application for freelancers and small businesses.
 
 Things you may want to cover:
 
