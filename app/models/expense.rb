@@ -1,5 +1,6 @@
 class Expense < ApplicationRecord
   belongs_to :user
+  has_many_attached :receipts
 
   enum :expense_type, { personal: 0, business: 1 }
 
