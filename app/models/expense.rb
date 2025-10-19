@@ -16,6 +16,9 @@ class Expense < ApplicationRecord
   validates :recurrence_frequency, presence: { message: "must be selected for recurring expenses" }, if: :is_recurring
   validates :recurrence_start_date, presence: { message: "must be set for recurring expenses" }, if: :is_recurring
 
+  # File upload validations for security
+  validate :acceptable_receipt_files
+
   scope :recurring, -> { where(is_recurring: true) }
   scope :non_recurring, -> { where(is_recurring: false) }
   scope :templates, -> { where(is_recurring: true) }
@@ -53,5 +56,25 @@ class Expense < ApplicationRecord
       notes: notes,
       is_recurring: false
     )
+  end
+
+  private
+
+  def acceptable_receipt_files
+    return unless receipts.attached?
+
+    receipts.each do |receipt|
+      unless receipt.content_type.in?(%w[image/png image/jpeg image/jpg application/pdf])
+        errors.add(:receipts, "must be a PNG, JPEG, or PDF file")
+      end
+
+      if receipt.byte_size > 10.megabytes
+        errors.add(:receipts, "file size must be less than 10MB")
+      end
+    end
+
+    if receipts.count > 5
+      errors.add(:receipts, "cannot attach more than 5 files")
+    end
   end
 end
