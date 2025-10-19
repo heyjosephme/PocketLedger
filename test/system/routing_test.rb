@@ -5,8 +5,8 @@ class RoutingTest < ApplicationSystemTestCase
     visit root_url
 
     # Should see landing page content
-    assert_selector "h1", text: "Smart Expense Tracking"
-    assert_link "Start Free Trial", href: new_user_registration_path
+    assert_selector "h1", text: /Stop losing receipts/i
+    assert_link "Start Free", href: new_user_registration_path
     assert_link "Sign In", href: new_user_session_path
   end
 
