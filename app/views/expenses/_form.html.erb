@@ -96,24 +96,47 @@
     </div>
   </div>
 
-  <div class="mt-6 flex justify-between items-center">
+  <!-- Quick Entry Mode Toggle -->
+  <div class="mt-8 pt-6 border-t border-gray-200">
+    <div class="flex items-center mb-4">
+      <input type="checkbox" id="quick-entry-mode" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" <%= 'checked' if flash[:consecutive_count] && flash[:consecutive_count] > 0 %>>
+      <label for="quick-entry-mode" class="ml-3 block">
+        <span class="text-sm font-semibold text-gray-900">Quick Entry Mode</span>
+        <p class="text-xs text-gray-500 mt-0.5">Log multiple expenses without re-entering common fields</p>
+      </label>
+    </div>
+
     <%if flash[:consecutive_count] && flash[:consecutive_count] > 0 %>
-      <div class="text-sm text-green-600 font-medium">
-        ✅ <%= pluralize(flash[:consecutive_count], 'expense') %> created this session
+      <div class="text-sm text-green-600 font-medium mb-4 flex items-center">
+        <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <%= pluralize(flash[:consecutive_count], 'expense') %> created this session
       </div>
-    <% else %>
-      <div></div>
     <% end %>
+  </div>
+
+  <div class="mt-6 flex justify-between items-center">
+    <!-- "Finish & View All" button (only shown in quick entry mode) -->
+    <div id="finish-button-container" class="<%= 'hidden' unless flash[:consecutive_count] && flash[:consecutive_count] > 0 %>">
+      <%= link_to "Finish & View All", expenses_path, class: "px-4 py-2 text-gray-600 hover:text-gray-900 font-medium border-2 border-gray-300 hover:border-gray-400 rounded-xl transition duration-200 inline-block" %>
+    </div>
+    <div class="<%= 'hidden' if flash[:consecutive_count] && flash[:consecutive_count] > 0 %>"></div>
 
     <div class="flex gap-3">
-      <%= form.submit "Save Expense", class: "px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition duration-200" %>
-      <%= form.submit "Create & Add Another", name: "add_another", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg" %>
+      <div id="normal-submit-container" class="<%= 'hidden' if flash[:consecutive_count] && flash[:consecutive_count] > 0 %>">
+        <%= form.submit "Save Expense", class: "px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition duration-200" %>
+      </div>
+      <div id="quick-submit-container" class="<%= 'hidden' unless flash[:consecutive_count] && flash[:consecutive_count] > 0 %>">
+        <%= form.submit "Save & Add Another", name: "add_another", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg" %>
+      </div>
     </div>
   </div>
 <% end %>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Recurring expense checkbox toggle
     const recurringCheckbox = document.querySelector('[name="expense[is_recurring]"]');
     const recurrenceFields = document.getElementById('recurrence-fields');
 
@@ -125,6 +148,37 @@
           recurrenceFields.classList.add('hidden');
         }
       });
+    }
+
+    // Quick Entry Mode toggle
+    const quickEntryCheckbox = document.getElementById('quick-entry-mode');
+    const normalSubmitContainer = document.getElementById('normal-submit-container');
+    const quickSubmitContainer = document.getElementById('quick-submit-container');
+    const finishButtonContainer = document.getElementById('finish-button-container');
+
+    if (quickEntryCheckbox && normalSubmitContainer && quickSubmitContainer) {
+      // Initialize button visibility based on checkbox state
+      function updateButtonVisibility() {
+        if (quickEntryCheckbox.checked) {
+          normalSubmitContainer.classList.add('hidden');
+          quickSubmitContainer.classList.remove('hidden');
+          if (finishButtonContainer) {
+            finishButtonContainer.classList.remove('hidden');
+          }
+        } else {
+          normalSubmitContainer.classList.remove('hidden');
+          quickSubmitContainer.classList.add('hidden');
+          if (finishButtonContainer) {
+            finishButtonContainer.classList.add('hidden');
+          }
+        }
+      }
+
+      // Run on load (after a tiny delay to ensure HTML is fully rendered)
+      setTimeout(updateButtonVisibility, 10);
+
+      // Run on change
+      quickEntryCheckbox.addEventListener('change', updateButtonVisibility);
     }
   });
 </script>
