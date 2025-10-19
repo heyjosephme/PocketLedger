@@ -96,8 +96,19 @@
     </div>
   </div>
 
-  <div class="mt-6 flex justify-end">
-    <%= form.submit class: "px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200" %>
+  <div class="mt-6 flex justify-between items-center">
+    <%if flash[:consecutive_count] && flash[:consecutive_count] > 0 %>
+      <div class="text-sm text-green-600 font-medium">
+        ✅ <%= pluralize(flash[:consecutive_count], 'expense') %> created this session
+      </div>
+    <% else %>
+      <div></div>
+    <% end %>
+
+    <div class="flex gap-3">
+      <%= form.submit "Save Expense", class: "px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition duration-200" %>
+      <%= form.submit "Create & Add Another", name: "add_another", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md hover:shadow-lg" %>
+    </div>
   </div>
 <% end %>
 

@@ -19,7 +19,7 @@ class ExpensesTest < ApplicationSystemTestCase
     fill_in "Amount", with: 1000
     select "Business", from: "Expense type"
     fill_in "Category", with: "Office"
-    find('input[type="submit"]').click
+    click_button "Save Expense"
 
     assert_text "Expense was successfully created"
   end

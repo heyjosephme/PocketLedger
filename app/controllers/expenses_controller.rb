@@ -13,9 +13,21 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
+    # Pre-fill from params if coming from "Create Another" flow
+    expense_date = if params[:expense_date].present?
+                     begin
+                       Date.parse(params[:expense_date])
+                     rescue ArgumentError
+                       Date.current
+                     end
+    else
+                     Date.current
+    end
+
     @expense = current_user.expenses.build(
-      expense_date: Date.current,
-      expense_type: :personal
+      expense_date: expense_date,
+      expense_type: params[:expense_type] || :personal,
+      category: params[:category]
     )
   end
 
@@ -29,7 +41,30 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: "Expense was successfully created." }
+        # Increment consecutive entry counter
+        session[:consecutive_count] ||= 0
+        session[:consecutive_count] += 1
+
+        # Check if user clicked "Create & Add Another"
+        if params[:add_another].present?
+          # Set flash messages
+          flash[:notice] = "Expense created! Add another or view all expenses."
+          flash[:consecutive_count] = session[:consecutive_count]
+
+          # Redirect to new form with pre-filled params
+          format.html {
+            redirect_to new_expense_path(
+              expense_date: @expense.expense_date.to_s,
+              expense_type: @expense.expense_type,
+              category: @expense.category
+            )
+          }
+        else
+          # Normal flow - reset counter and redirect to show
+          session[:consecutive_count] = 0
+          format.html { redirect_to @expense, notice: "Expense was successfully created." }
+        end
+
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new, status: :unprocessable_entity }
