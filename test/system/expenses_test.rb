@@ -9,7 +9,7 @@ class ExpensesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit expenses_url
-    assert_selector "h1", text: "Expenses"
+    assert_selector "h1", text: "Dashboard"
   end
 
   test "should create expense" do

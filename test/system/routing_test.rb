@@ -17,7 +17,7 @@ class RoutingTest < ApplicationSystemTestCase
 
     # Should be redirected to expenses page (dashboard)
     assert_current_path expenses_path
-    assert_selector "h1", text: "Expenses"
+    assert_selector "h1", text: "Dashboard"
   end
 
   test "authenticated user accessing /pages/home is also redirected to dashboard" do
@@ -27,6 +27,6 @@ class RoutingTest < ApplicationSystemTestCase
 
     # Should be redirected to expenses page (dashboard)
     assert_current_path expenses_path
-    assert_selector "h1", text: "Expenses"
+    assert_selector "h1", text: "Dashboard"
   end
 end
