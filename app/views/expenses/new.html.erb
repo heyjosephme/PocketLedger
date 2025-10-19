@@ -1,11 +1,59 @@
-<% content_for :title, "New expense" %>
+<% content_for :title, "New Expense" %>
 
-<h1>New expense</h1>
+<div class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <%= link_to expenses_path, class: "inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200 group" do %>
+          <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="font-semibold">Back to Dashboard</span>
+        <% end %>
+      </div>
 
-<%= render "form", expense: @expense %>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-3">
+        Add New Expense
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Track your spending and save on taxes. Fill in the details below to log a new expense.
+      </p>
+    </div>
 
-<br>
+    <!-- Success Message Banner (for consecutive entry flow) -->
+    <% if flash[:notice] && flash[:consecutive_count] && flash[:consecutive_count] > 0 %>
+      <div class="mb-6 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 rounded-xl p-6 shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="ml-3 flex-1">
+            <p class="text-green-800 font-semibold">
+              <%= flash[:notice] %>
+            </p>
+            <p class="text-green-700 text-sm mt-1">
+              You're on a roll! <%= pluralize(flash[:consecutive_count], 'expense') %> logged this session.
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
-<div>
-  <%= link_to "Back to expenses", expenses_path %>
+    <!-- Form Card -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+      <div class="p-8 md:p-10">
+        <%= render "form", expense: @expense %>
+      </div>
+    </div>
+
+    <!-- Help Text -->
+    <div class="mt-6 text-center">
+      <p class="text-sm text-gray-500">
+        💡 <strong>Pro tip:</strong> Use "Create & Add Another" to log multiple expenses quickly without re-entering common fields.
+      </p>
+    </div>
+  </div>
 </div>

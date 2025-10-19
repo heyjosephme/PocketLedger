@@ -145,13 +145,86 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - `bin/kamal shell` - Remote shell access
 - `bin/kamal logs` - View application logs
 
+## Design Philosophy
+
+### UI/UX Style: Silicon Valley Startup Aesthetic
+**IMPORTANT**: PocketLedger follows a **modern, startup-style design** inspired by companies like Linear, Vercel, and RemoteOK.
+
+#### Target Audience
+- **Primary**: Tech-savvy IT freelancers (developers, designers, consultants)
+- **Market**: Japanese freelancers (個人事業主) who need expense tracking for tax filing (確定申告)
+- **Positioning**: Simple, modern alternative to traditional Japanese accounting software (Freee, Money Forward)
+
+#### Design Principles
+1. **Bold Typography**
+   - Use large, extrabold headings (text-5xl to text-7xl)
+   - Clean, tight tracking (tracking-tight)
+   - Clear hierarchy with font weights (extrabold, semibold, medium)
+
+2. **Generous Whitespace**
+   - Spacious padding (py-20, py-32 for sections)
+   - Ample gaps between elements (gap-6, gap-8, gap-12)
+   - Breathing room around all UI elements
+
+3. **Large Rounded Corners**
+   - Cards and buttons: rounded-xl (12px), rounded-2xl (16px)
+   - Feature cards: rounded-3xl (24px)
+   - Avoid small or sharp corners
+
+4. **Vibrant Gradients**
+   - Primary brand: blue-600 → cyan-500
+   - Accent gradients: green-600 → emerald-500, purple-600 → fuchsia-500
+   - Use gradients for visual interest, not everywhere
+
+5. **Hover Effects and Transitions**
+   - Scale on hover (hover:scale-105)
+   - Shadow changes (hover:shadow-md, hover:shadow-lg)
+   - Smooth transitions (transition-all duration-200)
+   - Border color changes
+
+6. **Color Palette**
+   - **Primary**: Blue-600 (#2563eb)
+   - **Backgrounds**: White, slate-50 (alternating sections)
+   - **Text**: Gray-900 (headings), Gray-700 (body), Gray-500 (subtle)
+   - **Accents**: Cyan-500, Green-600, Purple-600
+
+7. **Copy Tone**
+   - **Direct and punchy**: "Stop losing receipts. Start saving on taxes."
+   - **No BS**: Avoid corporate jargon
+   - **Relatable examples**: Reference AWS, GitHub, Netflix (familiar to IT freelancers)
+   - **Action-oriented**: Use strong verbs
+
+8. **Layout**
+   - **Spacious sections**: py-20 to py-32 between major sections
+   - **Alternating backgrounds**: white/slate-50 for visual rhythm
+   - **Centered content**: max-w-7xl mx-auto
+   - **Responsive grids**: grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+
+#### What to Avoid
+- ❌ Small, cramped layouts
+- ❌ Tiny fonts (nothing smaller than text-xs)
+- ❌ Sharp corners (rounded-sm, rounded-md)
+- ❌ Dull, flat colors
+- ❌ Corporate/traditional Japanese design aesthetic
+- ❌ Dense, cluttered UI
+
+#### Reference Examples
+- **Landing pages**: Linear, Vercel, RemoteOK
+- **Forms**: Modern SaaS applications (Stripe, Notion)
+- **Navigation**: Minimal, clean headers (not busy menus)
+
+#### Tailwind CSS Usage
+- **Always use Tailwind classes** (no custom CSS unless absolutely necessary)
+- **Responsive design**: mobile-first, use md: and lg: breakpoints
+- **Dark mode**: Not implemented yet (future consideration)
+
 ## Architecture
 
 ### Core Structure
 - **Application Module**: `PocketLedger::Application` (config/application.rb:9)
 - **Database**: SQLite with Solid adapters for caching, queuing, and cable
 - **Frontend**: Uses Importmap for JS modules, Stimulus controllers in app/javascript/controllers/
-- **Styling**: CSS in app/assets/stylesheets/application.css
+- **Styling**: Tailwind CSS (via CDN in development, compiled for production)
 
 ### Key Rails Configuration
 - Rails 8.0 with default configurations loaded
