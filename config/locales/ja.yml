@@ -1,0 +1,188 @@
+ja:
+  app_name: "PocketLedger"
+  tagline: "経費管理"
+
+  # Navigation
+  nav:
+    dashboard: "ダッシュボード"
+    sign_in: "ログイン"
+    sign_out: "ログアウト"
+    sign_up: "新規登録"
+
+  # Common actions
+  actions:
+    add: "追加"
+    edit: "編集"
+    delete: "削除"
+    save: "保存"
+    cancel: "キャンセル"
+    back: "戻る"
+    view: "表示"
+    create: "作成"
+    update: "更新"
+    confirm: "本当によろしいですか？"
+
+  # Landing page
+  landing:
+    hero:
+      badge: "フリーランス開発者が、フリーランス開発者のために作りました"
+      headline: "領収書をなくすのは、もうやめましょう。"
+      headline_accent: "節税を始めましょう。"
+      description: "日本のフリーランス向けのシンプルな経費管理ツールです。事業用・個人用の経費を記録し、領収書をアップロードして、確定申告用に出力できます。"
+      cta_primary: "無料で始める"
+      cta_secondary: "ログイン"
+      trust_line: "クレジットカード不要 • 永久無料 • いつでもキャンセル可能"
+
+    features:
+      title: "経費管理に必要なすべて"
+      receipt:
+        title: "領収書の添付"
+        description: "PDF、JPG、PNGの領収書を経費に添付できます。確定申告に最適です。"
+      recurring:
+        title: "定期経費の自動化"
+        description: "月額の家賃、サブスクリプション、週次の経費を設定できます。記録忘れがなくなります。"
+      export:
+        title: "税理士へ出力"
+        description: "経費をCSVまたはPDFに出力できます。税理士と共有したり、確定申告に使用できます。"
+
+    how_it_works:
+      title: "使い方"
+      step1:
+        title: "経費を記録"
+        description: "手動で経費を追加するか、定期経費を設定します。事業用・個人用に分類できます。"
+      step2:
+        title: "領収書をアップロード"
+        description: "領収書の写真やPDFを経費に添付します。すべてを整理して保管できます。"
+      step3:
+        title: "出力して確定申告"
+        description: "税理士向けにCSV/PDFで出力します。シンプルな確定申告準備。"
+
+    social_proof:
+      title: "数百人のITフリーランスが経費を管理しています"
+      stat1:
+        number: "500+"
+        label: "フリーランス"
+      stat2:
+        number: "10k+"
+        label: "記録済み経費"
+      stat3:
+        number: "100%"
+        label: "無料"
+
+    final_cta:
+      title: "節税のチャンスを逃すのはもうやめませんか？"
+      description: "今日から経費の記録を始めましょう。永久無料です。"
+      button: "無料で始める"
+
+  # Dashboard
+  dashboard:
+    title: "ダッシュボード"
+    subtitle: "個人用・事業用の経費を管理"
+    add_expense: "経費を追加"
+    recent_expenses: "最近の経費"
+
+    summary:
+      total: "合計経費"
+      business: "事業用"
+      personal: "個人用"
+
+    empty_state:
+      title: "まだ経費がありません"
+      description: "経費の記録を始めて、支出パターンを把握しましょう。"
+      cta: "最初の経費を追加"
+
+  # Expenses
+  expenses:
+    new:
+      title: "新しい経費を追加"
+      subtitle: "支出を記録して節税しましょう。以下に詳細を入力して経費を記録してください。"
+      pro_tip: "プロのコツ："
+      pro_tip_text: "「保存して次を追加」を使うと、共通項目を再入力せずに複数の経費を素早く記録できます。"
+
+    edit:
+      title: "経費を編集"
+      subtitle: "この経費の詳細を更新します。変更はすぐに保存されます。"
+      tip: "ヒント："
+      tip_text: "編集時に領収書ファイルを添付・削除できます。"
+
+    form:
+      amount: "金額"
+      expense_date: "日付"
+      expense_type: "種類"
+      expense_type_personal: "個人用"
+      expense_type_business: "事業用"
+      expense_type_prompt: "種類を選択"
+      category: "カテゴリー"
+      category_placeholder: "例：食費、交通費、事務用品"
+      vendor: "支払先（任意）"
+      vendor_placeholder: "店舗名または支払先名（任意）"
+      description: "説明（任意）"
+      description_placeholder: "この経費の用途は？（任意）"
+      notes: "メモ"
+      notes_placeholder: "追加のメモ（任意）"
+      receipts: "領収書・請求書ファイル"
+      receipts_help: "領収書または請求書ファイルをアップロード（PDF、JPG、PNG）"
+
+      recurring:
+        title: "定期経費にする"
+        frequency: "頻度"
+        frequency_daily: "毎日"
+        frequency_weekly: "毎週"
+        frequency_monthly: "毎月"
+        frequency_yearly: "毎年"
+        frequency_prompt: "頻度を選択"
+        start_date: "開始日"
+        end_date: "終了日（任意 - 空白で継続）"
+        note: "今後の経費はこのスケジュールに基づいて自動生成されます。各経費に個別に領収書を添付できます。"
+
+      quick_entry:
+        title: "クイック入力モード"
+        description: "共通項目を再入力せずに複数の経費を記録"
+        counter: "このセッションで%{count}件作成済み"
+        success: "経費を作成しました！次を追加するか、すべて表示できます。"
+        on_roll: "いい調子です！このセッションで%{count}件記録済み。"
+
+      actions:
+        save: "経費を保存"
+        save_and_add: "保存して次を追加"
+        finish: "完了してすべて表示"
+        back_to_dashboard: "ダッシュボードに戻る"
+        back_to_expense: "経費に戻る"
+        view_all: "すべての経費を表示"
+
+    messages:
+      created: "経費を作成しました。"
+      updated: "経費を更新しました。"
+      destroyed: "経費を削除しました。"
+
+  # Footer
+  footer:
+    copyright: "© %{year} PocketLedger。日本のフリーランスのために作られました。"
+    privacy: "プライバシーポリシー"
+    terms: "利用規約"
+    support: "サポート"
+    about: "について"
+
+  # Static pages
+  pages:
+    privacy:
+      title: "プライバシーポリシー"
+    terms:
+      title: "利用規約"
+    support:
+      title: "サポート・お問い合わせ"
+    about:
+      title: "PocketLedgerについて"
+
+  # Date and time formats
+  date:
+    formats:
+      default: "%Y年%-m月%-d日"
+      short: "%-m月%-d日"
+      long: "%Y年%-m月%-d日"
+
+  time:
+    formats:
+      default: "%Y年%-m月%-d日 %H:%M"
+      short: "%-m月%-d日 %H:%M"
+      long: "%Y年%-m月%-d日 %H時%M分"

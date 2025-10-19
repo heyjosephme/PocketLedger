@@ -24,6 +24,11 @@ module PocketLedger
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # I18n configuration
+    config.i18n.available_locales = [:en, :ja, :"zh-CN"]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = [:en]
+
     # Enable Rack::Attack for rate limiting and protection
     config.middleware.use Rack::Attack
   end

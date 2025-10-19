@@ -1,0 +1,188 @@
+zh-CN:
+  app_name: "PocketLedger"
+  tagline: "费用追踪"
+
+  # Navigation
+  nav:
+    dashboard: "仪表板"
+    sign_in: "登录"
+    sign_out: "登出"
+    sign_up: "注册"
+
+  # Common actions
+  actions:
+    add: "添加"
+    edit: "编辑"
+    delete: "删除"
+    save: "保存"
+    cancel: "取消"
+    back: "返回"
+    view: "查看"
+    create: "创建"
+    update: "更新"
+    confirm: "您确定吗？"
+
+  # Landing page
+  landing:
+    hero:
+      badge: "由自由职业开发者打造，专为自由职业开发者设计"
+      headline: "别再丢失收据了。"
+      headline_accent: "开始节税吧。"
+      description: "专为日本自由职业者打造的简单费用追踪工具。记录商业和个人费用，上传收据，导出报税。"
+      cta_primary: "免费开始"
+      cta_secondary: "登录"
+      trust_line: "无需信用卡 • 永久免费 • 随时取消"
+
+    features:
+      title: "追踪费用所需的一切"
+      receipt:
+        title: "收据附件"
+        description: "上传并附加PDF、JPG或PNG收据到费用。完美适用于报税。"
+      recurring:
+        title: "自动循环费用"
+        description: "设置每月房租、订阅或每周费用。再也不会忘记记录。"
+      export:
+        title: "导出给会计师"
+        description: "将费用导出为CSV或PDF。与会计师共享或用于报税。"
+
+    how_it_works:
+      title: "如何使用"
+      step1:
+        title: "记录费用"
+        description: "手动添加费用或设置循环费用。分类为商业或个人。"
+      step2:
+        title: "上传收据"
+        description: "将收据照片或PDF附加到费用。保持一切井井有条。"
+      step3:
+        title: "导出并报税"
+        description: "导出CSV/PDF给会计师。简单的报税准备。"
+
+    social_proof:
+      title: "数百名IT自由职业者正在管理他们的费用"
+      stat1:
+        number: "500+"
+        label: "自由职业者"
+      stat2:
+        number: "10k+"
+        label: "已追踪费用"
+      stat3:
+        number: "100%"
+        label: "免费"
+
+    final_cta:
+      title: "准备好不再在税务上浪费钱了吗？"
+      description: "今天就开始追踪您的费用。永久免费。"
+      button: "免费开始"
+
+  # Dashboard
+  dashboard:
+    title: "仪表板"
+    subtitle: "追踪您的个人和商业费用"
+    add_expense: "添加费用"
+    recent_expenses: "最近的费用"
+
+    summary:
+      total: "总费用"
+      business: "商业"
+      personal: "个人"
+
+    empty_state:
+      title: "暂无费用"
+      description: "开始追踪您的费用，了解您的消费模式。"
+      cta: "添加您的第一笔费用"
+
+  # Expenses
+  expenses:
+    new:
+      title: "添加新费用"
+      subtitle: "追踪您的支出并节省税款。填写以下详细信息以记录新费用。"
+      pro_tip: "专业提示："
+      pro_tip_text: "使用「保存并添加下一个」可快速记录多笔费用而无需重新输入共同字段。"
+
+    edit:
+      title: "编辑费用"
+      subtitle: "更新此费用的详细信息。更改将立即保存。"
+      tip: "提示："
+      tip_text: "编辑费用时可以附加或删除收据文件。"
+
+    form:
+      amount: "金额"
+      expense_date: "日期"
+      expense_type: "类型"
+      expense_type_personal: "个人"
+      expense_type_business: "商业"
+      expense_type_prompt: "选择类型"
+      category: "类别"
+      category_placeholder: "例如：食品、交通、办公"
+      vendor: "供应商（可选）"
+      vendor_placeholder: "商店或供应商名称（可选）"
+      description: "描述（可选）"
+      description_placeholder: "这笔费用是用于什么？（可选）"
+      notes: "备注"
+      notes_placeholder: "附加备注（可选）"
+      receipts: "收据/发票文件"
+      receipts_help: "上传收据或发票文件（PDF、JPG、PNG）"
+
+      recurring:
+        title: "设为循环费用"
+        frequency: "频率"
+        frequency_daily: "每日"
+        frequency_weekly: "每周"
+        frequency_monthly: "每月"
+        frequency_yearly: "每年"
+        frequency_prompt: "选择频率"
+        start_date: "开始日期"
+        end_date: "结束日期（可选 - 留空表示持续）"
+        note: "未来的费用将根据此计划自动生成。您可以为每个生成的费用单独附加收据。"
+
+      quick_entry:
+        title: "快速输入模式"
+        description: "无需重新输入共同字段即可记录多笔费用"
+        counter: "本次会话已创建%{count}条"
+        success: "费用已创建！添加下一个或查看全部费用。"
+        on_roll: "做得好！本次会话已记录%{count}条。"
+
+      actions:
+        save: "保存费用"
+        save_and_add: "保存并添加下一个"
+        finish: "完成并查看全部"
+        back_to_dashboard: "返回仪表板"
+        back_to_expense: "返回费用"
+        view_all: "查看全部费用"
+
+    messages:
+      created: "费用已成功创建。"
+      updated: "费用已成功更新。"
+      destroyed: "费用已成功删除。"
+
+  # Footer
+  footer:
+    copyright: "© %{year} PocketLedger。为日本自由职业者打造。"
+    privacy: "隐私政策"
+    terms: "服务条款"
+    support: "支持"
+    about: "关于"
+
+  # Static pages
+  pages:
+    privacy:
+      title: "隐私政策"
+    terms:
+      title: "服务条款"
+    support:
+      title: "支持与联系"
+    about:
+      title: "关于PocketLedger"
+
+  # Date and time formats
+  date:
+    formats:
+      default: "%Y年%-m月%-d日"
+      short: "%-m月%-d日"
+      long: "%Y年%-m月%-d日"
+
+  time:
+    formats:
+      default: "%Y年%-m月%-d日 %H:%M"
+      short: "%-m月%-d日 %H:%M"
+      long: "%Y年%-m月%-d日 %H时%M分"

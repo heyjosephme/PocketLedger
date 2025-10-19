@@ -1,31 +1,188 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  app_name: "PocketLedger"
+  tagline: "Expense Tracker"
+
+  # Navigation
+  nav:
+    dashboard: "Dashboard"
+    sign_in: "Sign In"
+    sign_out: "Sign out"
+    sign_up: "Sign Up"
+
+  # Common actions
+  actions:
+    add: "Add"
+    edit: "Edit"
+    delete: "Delete"
+    save: "Save"
+    cancel: "Cancel"
+    back: "Back"
+    view: "View"
+    create: "Create"
+    update: "Update"
+    confirm: "Are you sure?"
+
+  # Landing page
+  landing:
+    hero:
+      badge: "Built by freelance developers, for freelance developers"
+      headline: "Stop losing receipts."
+      headline_accent: "Start saving on taxes."
+      description: "The simple expense tracker built for Japanese freelancers. Track business and personal expenses, upload receipts, and export for tax filing."
+      cta_primary: "Start Free"
+      cta_secondary: "Sign In"
+      trust_line: "No credit card required • Free forever • Cancel anytime"
+
+    features:
+      title: "Everything you need to track expenses"
+      receipt:
+        title: "Receipt Attachments"
+        description: "Upload and attach PDF, JPG, or PNG receipts to expenses. Perfect for 確定申告 (tax filing)."
+      recurring:
+        title: "Auto-Recurring Expenses"
+        description: "Set up monthly rent, subscriptions, or weekly expenses. Never forget to log them again."
+      export:
+        title: "Export to Accountant"
+        description: "Export your expenses to CSV or PDF. Share with your accountant or use for tax filing."
+
+    how_it_works:
+      title: "How it works"
+      step1:
+        title: "Log your expenses"
+        description: "Add expenses manually or set up recurring ones. Categorize as business or personal."
+      step2:
+        title: "Upload receipts"
+        description: "Attach receipt photos or PDFs to your expenses. Keep everything organized."
+      step3:
+        title: "Export and file taxes"
+        description: "Export to CSV/PDF for your accountant. Simple 確定申告 preparation."
+
+    social_proof:
+      title: "Join hundreds of IT freelancers managing their expenses"
+      stat1:
+        number: "500+"
+        label: "Freelancers"
+      stat2:
+        number: "10k+"
+        label: "Expenses Tracked"
+      stat3:
+        number: "100%"
+        label: "Free"
+
+    final_cta:
+      title: "Ready to stop losing money on taxes?"
+      description: "Start tracking your expenses today. It's free, forever."
+      button: "Get Started Free"
+
+  # Dashboard
+  dashboard:
+    title: "Dashboard"
+    subtitle: "Track your personal and business expenses"
+    add_expense: "Add Expense"
+    recent_expenses: "Recent Expenses"
+
+    summary:
+      total: "Total Expenses"
+      business: "Business"
+      personal: "Personal"
+
+    empty_state:
+      title: "No expenses yet"
+      description: "Start tracking your expenses and get insights into your spending patterns."
+      cta: "Add your first expense"
+
+  # Expenses
+  expenses:
+    new:
+      title: "Add New Expense"
+      subtitle: "Track your spending and save on taxes. Fill in the details below to log a new expense."
+      pro_tip: "Pro tip:"
+      pro_tip_text: "Use \"Create & Add Another\" to log multiple expenses quickly without re-entering common fields."
+
+    edit:
+      title: "Edit Expense"
+      subtitle: "Update the details of this expense. Changes will be saved immediately."
+      tip: "Tip:"
+      tip_text: "You can attach or remove receipt files when editing an expense."
+
+    form:
+      amount: "Amount"
+      expense_date: "Expense date"
+      expense_type: "Expense type"
+      expense_type_personal: "Personal"
+      expense_type_business: "Business"
+      expense_type_prompt: "Select type"
+      category: "Category"
+      category_placeholder: "e.g., Food, Transport, Office"
+      vendor: "Vendor (optional)"
+      vendor_placeholder: "Store or vendor name (optional)"
+      description: "Description (optional)"
+      description_placeholder: "What was this expense for? (optional)"
+      notes: "Notes"
+      notes_placeholder: "Additional notes (optional)"
+      receipts: "Receipt/Invoice Files"
+      receipts_help: "Upload receipt or invoice files (PDF, JPG, PNG)"
+
+      recurring:
+        title: "Make this a recurring expense"
+        frequency: "Frequency"
+        frequency_daily: "Daily"
+        frequency_weekly: "Weekly"
+        frequency_monthly: "Monthly"
+        frequency_yearly: "Yearly"
+        frequency_prompt: "Select frequency"
+        start_date: "Start Date"
+        end_date: "End Date (optional - leave blank for ongoing)"
+        note: "Future expenses will be auto-generated based on this schedule. You can attach receipts to each generated expense individually."
+
+      quick_entry:
+        title: "Quick Entry Mode"
+        description: "Log multiple expenses without re-entering common fields"
+        counter: "%{count} created this session"
+        success: "Expense created! Add another or view all expenses."
+        on_roll: "You're on a roll! %{count} logged this session."
+
+      actions:
+        save: "Save Expense"
+        save_and_add: "Save & Add Another"
+        finish: "Finish & View All"
+        back_to_dashboard: "Back to Dashboard"
+        back_to_expense: "Back to Expense"
+        view_all: "View All Expenses"
+
+    messages:
+      created: "Expense was successfully created."
+      updated: "Expense was successfully updated."
+      destroyed: "Expense was successfully destroyed."
+
+  # Footer
+  footer:
+    copyright: "© %{year} PocketLedger. Built for Japanese freelancers."
+    privacy: "Privacy Policy"
+    terms: "Terms of Service"
+    support: "Support"
+    about: "About"
+
+  # Static pages
+  pages:
+    privacy:
+      title: "Privacy Policy"
+    terms:
+      title: "Terms of Service"
+    support:
+      title: "Support & Contact"
+    about:
+      title: "About PocketLedger"
+
+  # Date and time formats
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
