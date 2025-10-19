@@ -1,12 +1,42 @@
-<% content_for :title, "Editing expense" %>
+<% content_for :title, "Edit Expense" %>
 
-<h1>Editing expense</h1>
+<div class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <%= link_to @expense, class: "inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200 group" do %>
+          <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="font-semibold">Back to Expense</span>
+        <% end %>
 
-<%= render "form", expense: @expense %>
+        <%= link_to expenses_path, class: "text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200" do %>
+          View All Expenses
+        <% end %>
+      </div>
 
-<br>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-3">
+        Edit Expense
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Update the details of this expense. Changes will be saved immediately.
+      </p>
+    </div>
 
-<div>
-  <%= link_to "Show this expense", @expense %> |
-  <%= link_to "Back to expenses", expenses_path %>
+    <!-- Form Card -->
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+      <div class="p-8 md:p-10">
+        <%= render "form", expense: @expense %>
+      </div>
+    </div>
+
+    <!-- Help Text -->
+    <div class="mt-6 text-center">
+      <p class="text-sm text-gray-500">
+        💡 <strong>Tip:</strong> You can attach or remove receipt files when editing an expense.
+      </p>
+    </div>
+  </div>
 </div>
