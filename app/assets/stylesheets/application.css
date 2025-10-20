@@ -9,6 +9,13 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+@import "tailwindcss";
+
+@theme {
+  /* Enable class-based dark mode */
+  --color-scheme: light dark;
+}
+
 /* Flash Message Animations */
 @keyframes slide-in {
   from {
