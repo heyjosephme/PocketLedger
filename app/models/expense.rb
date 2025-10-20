@@ -1,4 +1,7 @@
 class Expense < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: [ :slugged, :scoped, :finders ], scope: :user
+
   belongs_to :user
   belongs_to :parent_expense, class_name: "Expense", optional: true
   has_many :child_expenses, class_name: "Expense", foreign_key: :parent_expense_id, dependent: :nullify
@@ -56,6 +59,34 @@ class Expense < ApplicationRecord
       notes: notes,
       is_recurring: false
     )
+  end
+
+  # Generate slug candidates for friendly_id
+  # Tries: date-description, date-amount-description, date-category, date-id
+  def slug_candidates
+    [
+      [ :expense_date_formatted, :description_truncated ],
+      [ :expense_date_formatted, :amount_formatted, :description_truncated ],
+      [ :expense_date_formatted, :category ],
+      [ :expense_date_formatted, :id ]
+    ]
+  end
+
+  # Regenerate slug if description or date changes
+  def should_generate_new_friendly_id?
+    description_changed? || expense_date_changed? || slug.blank?
+  end
+
+  def expense_date_formatted
+    expense_date&.strftime("%Y-%m-%d")
+  end
+
+  def amount_formatted
+    amount&.to_i&.to_s
+  end
+
+  def description_truncated
+    description&.truncate(40, omission: "", separator: " ")
   end
 
   private

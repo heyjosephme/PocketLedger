@@ -46,4 +46,21 @@ class ExpensesTest < ApplicationSystemTestCase
 
     assert_text "Expense was successfully destroyed"
   end
+
+  test "can access expense by slug URL" do
+    expense = Expense.create!(
+      user: @user,
+      amount: 1500,
+      description: "Test Slug Expense",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business,
+      category: "Test"
+    )
+
+    visit expense_url(expense.slug)
+
+    assert_text "Test Slug Expense"
+    assert_text "1500"
+    assert_current_path expense_path(expense.slug)
+  end
 end

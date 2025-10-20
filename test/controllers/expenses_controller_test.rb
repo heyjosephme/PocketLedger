@@ -37,6 +37,7 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update expense" do
     patch expense_url(@expense), params: { expense: { amount: @expense.amount, category: @expense.category, description: @expense.description, expense_date: @expense.expense_date, expense_type: @expense.expense_type, notes: @expense.notes, vendor: @expense.vendor } }
+    @expense.reload
     assert_redirected_to expense_url(@expense)
   end
 

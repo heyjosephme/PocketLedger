@@ -172,4 +172,69 @@ class ExpenseTest < ActiveSupport::TestCase
     assert_not next_expense.recurring?
     assert_equal Date.today + 1.month, next_expense.expense_date
   end
+
+  # FriendlyId tests
+  test "generates slug on create" do
+    expense = Expense.create!(
+      user: users(:one),
+      amount: 100,
+      description: "Test Expense",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business
+    )
+
+    assert_not_nil expense.slug
+    assert expense.slug.include?("2025-10-20")
+  end
+
+  test "can find expense by slug" do
+    expense = Expense.create!(
+      user: users(:one),
+      amount: 100,
+      description: "Test Expense",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business
+    )
+
+    found_expense = Expense.find(expense.slug)
+    assert_equal expense.id, found_expense.id
+  end
+
+  test "regenerates slug when description changes" do
+    expense = Expense.create!(
+      user: users(:one),
+      amount: 100,
+      description: "Original Description",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business
+    )
+
+    original_slug = expense.slug
+
+    expense.update!(description: "Updated Description")
+
+    assert_not_equal original_slug, expense.slug
+    assert expense.slug.include?("updated-description")
+  end
+
+  test "slug is scoped to user" do
+    expense1 = Expense.create!(
+      user: users(:one),
+      amount: 100,
+      description: "Lunch",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business
+    )
+
+    expense2 = Expense.create!(
+      user: users(:two),
+      amount: 100,
+      description: "Lunch",
+      expense_date: Date.new(2025, 10, 20),
+      expense_type: :business
+    )
+
+    # Both expenses should have the same slug because they're scoped to different users
+    assert_equal expense1.slug, expense2.slug
+  end
 end
