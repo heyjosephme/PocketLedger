@@ -72,3 +72,5 @@ gem "devise", "~> 4.9"
 gem "rack-attack", "~> 6.7"
 
 gem "friendly_id", "~> 5.5"
+
+gem "lucide-rails", "~> 0.7.1"
