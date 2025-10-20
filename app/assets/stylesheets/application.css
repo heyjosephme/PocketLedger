@@ -11,11 +11,6 @@
 
 @import "tailwindcss";
 
-@theme {
-  /* Enable class-based dark mode */
-  --color-scheme: light dark;
-}
-
 /* Flash Message Animations */
 @keyframes slide-in {
   from {

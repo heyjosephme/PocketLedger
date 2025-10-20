@@ -1,6 +1,6 @@
 <%= form_with(model: expense, local: true, class: "max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md") do |form| %>
   <% if expense.errors.any? %>
-    <div class="bg-red-50 border border-red-200 rounded-md p-4 mb-6">
+    <div class="bg-red-50/20 border border-red-200 rounded-md p-4 mb-6">
       <h3 class="text-red-800 font-medium mb-2"><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h3>
       <ul class="text-red-700 text-sm list-disc list-inside">
         <% expense.errors.each do |error| %>
@@ -87,7 +87,7 @@
           </div>
         </div>
 
-        <div class="bg-purple-50 border border-purple-200 rounded-md p-3">
+        <div class="bg-purple-50/20 border border-purple-200 rounded-md p-3">
           <p class="text-xs text-purple-700">
             <strong>Note:</strong> Future expenses will be auto-generated based on this schedule. You can attach receipts to each generated expense individually.
           </p>
