@@ -70,3 +70,5 @@ gem "devise", "~> 4.9"
 
 # Security and rate limiting
 gem "rack-attack", "~> 6.7"
+
+gem "friendly_id", "~> 5.5"

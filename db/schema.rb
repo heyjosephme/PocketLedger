@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_19_094244) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_20_081511) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,9 +55,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_19_094244) do
     t.date "recurrence_start_date"
     t.date "recurrence_end_date"
     t.integer "parent_expense_id"
+    t.string "slug"
     t.index ["is_recurring"], name: "index_expenses_on_is_recurring"
     t.index ["parent_expense_id"], name: "index_expenses_on_parent_expense_id"
+    t.index ["user_id", "slug"], name: "index_expenses_on_user_id_and_slug", unique: true
     t.index ["user_id"], name: "index_expenses_on_user_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,8 +84,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_19_094244) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
