@@ -1,0 +1,16 @@
+<div class="<%= container_classes %>" data-controller="flash" data-flash-duration-value="5000">
+  <!-- Icon -->
+  <div class="<%= icon_classes %>">
+    <%= helpers.lucide_icon(icon_name, class: "w-6 h-6") %>
+  </div>
+
+  <!-- Message -->
+  <div class="flex-1">
+    <p class="font-semibold text-sm leading-relaxed"><%= message %></p>
+  </div>
+
+  <!-- Close Button -->
+  <button type="button" data-action="click->flash#close" class="flex-shrink-0 hover:opacity-75 transition-opacity duration-200">
+    <%= helpers.lucide_icon("x", class: "w-5 h-5") %>
+  </button>
+</div>
