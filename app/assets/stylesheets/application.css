@@ -9,6 +9,8 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+@import "tailwindcss";
+
 /* Flash Message Animations */
 @keyframes slide-in {
   from {
