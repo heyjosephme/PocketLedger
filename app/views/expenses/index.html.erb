@@ -1,13 +1,13 @@
-<div class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-12">
+<div class="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 py-12 transition-colors duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-10">
       <div class="flex justify-between items-end mb-4">
         <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Dashboard
           </h1>
-          <p class="text-lg text-gray-600 mt-2">
+          <p class="text-lg text-gray-600 dark:text-gray-300 mt-2">
             Track your personal and business expenses
           </p>
         </div>
@@ -20,96 +20,96 @@
 
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-200">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-200">
         <div class="flex items-center gap-3 mb-2">
           <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
             </svg>
           </div>
-          <h3 class="text-sm font-semibold text-gray-600">Total Expenses</h3>
+          <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-300">Total Expenses</h3>
         </div>
-        <p class="text-3xl font-bold text-gray-900">¥<%= number_with_delimiter(@expenses.sum(&:amount).to_i) %></p>
+        <p class="text-3xl font-bold text-gray-900 dark:text-white">¥<%= number_with_delimiter(@expenses.sum(&:amount).to_i) %></p>
       </div>
 
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-200">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-200">
         <div class="flex items-center gap-3 mb-2">
           <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h3 class="text-sm font-semibold text-gray-600">Business</h3>
+          <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-300">Business</h3>
         </div>
-        <p class="text-3xl font-bold text-gray-900">¥<%= number_with_delimiter(@expenses.business.sum(&:amount).to_i) %></p>
+        <p class="text-3xl font-bold text-gray-900 dark:text-white">¥<%= number_with_delimiter(@expenses.business.sum(&:amount).to_i) %></p>
       </div>
 
-      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow duration-200">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-200">
         <div class="flex items-center gap-3 mb-2">
           <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-fuchsia-500 rounded-xl flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
-          <h3 class="text-sm font-semibold text-gray-600">Personal</h3>
+          <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-300">Personal</h3>
         </div>
-        <p class="text-3xl font-bold text-gray-900">¥<%= number_with_delimiter(@expenses.personal.sum(&:amount).to_i) %></p>
+        <p class="text-3xl font-bold text-gray-900 dark:text-white">¥<%= number_with_delimiter(@expenses.personal.sum(&:amount).to_i) %></p>
       </div>
     </div>
 
     <!-- Expense Table -->
     <div>
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Recent Expenses</h2>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recent Expenses</h2>
 
       <% if @expenses.any? %>
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden">
           <!-- Desktop Table View -->
           <div class="hidden md:block overflow-x-auto">
             <table class="w-full">
-              <thead class="bg-gray-50 border-b border-gray-200">
+              <thead class="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                 <tr>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Date</th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Category</th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Amount</th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Type</th>
-                  <th class="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
+                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Description</th>
+                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Category</th>
+                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Amount</th>
+                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Type</th>
+                  <th class="px-6 py-4 text-right text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200">
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                 <% @expenses.order(expense_date: :desc).each do |expense| %>
-                  <tr class="hover:bg-blue-50 transition-colors duration-150">
+                  <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150">
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-900"><%= expense.expense_date.strftime("%Y-%m-%d") %></div>
-                      <div class="text-xs text-gray-500"><%= expense.expense_date.strftime("%b %d") %></div>
+                      <div class="text-sm font-medium text-gray-900 dark:text-white"><%= expense.expense_date.strftime("%Y-%m-%d") %></div>
+                      <div class="text-xs text-gray-500 dark:text-gray-400"><%= expense.expense_date.strftime("%b %d") %></div>
                     </td>
                     <td class="px-6 py-4">
-                      <div class="text-sm text-gray-900 max-w-xs truncate">
+                      <div class="text-sm text-gray-900 dark:text-white max-w-xs truncate">
                         <% if expense.description.present? %>
                           <%= expense.description %>
                         <% else %>
-                          <span class="text-gray-400 italic">No description</span>
+                          <span class="text-gray-400 dark:text-gray-500 italic">No description</span>
                         <% end %>
                       </div>
                       <% if expense.vendor.present? %>
-                        <div class="text-xs text-gray-500 truncate"><%= expense.vendor %></div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 truncate"><%= expense.vendor %></div>
                       <% end %>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <span class="text-sm text-gray-700"><%= expense.category.presence || "Uncategorized" %></span>
+                      <span class="text-sm text-gray-700 dark:text-gray-300"><%= expense.category.presence || "Uncategorized" %></span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-bold text-gray-900">¥<%= number_with_delimiter(expense.amount.to_i) %></div>
+                      <div class="text-sm font-bold text-gray-900 dark:text-white">¥<%= number_with_delimiter(expense.amount.to_i) %></div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <%= render ExpenseTypeBadgeComponent.new(expense_type: expense.expense_type) %>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right">
                       <div class="flex justify-end gap-2">
-                        <%= link_to expense_path(expense), class: "inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-all duration-200", title: "View expense" do %>
+                        <%= link_to expense_path(expense), class: "inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white transition-all duration-200", title: "View expense" do %>
                           <%= lucide_icon("eye", class: "w-4 h-4") %>
                         <% end %>
-                        <%= link_to edit_expense_path(expense), class: "inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-700 transition-all duration-200", title: "Edit expense" do %>
+                        <%= link_to edit_expense_path(expense), class: "inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200", title: "Edit expense" do %>
                           <%= lucide_icon("pencil", class: "w-4 h-4") %>
                         <% end %>
                       </div>
